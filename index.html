@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLED Studio V2.4 | Custom Export</title>
+    <link rel="stylesheet" href="data/style.css">
+    <link rel="stylesheet" href="data/pics/fontawesome/css/font-awesome.min.css">
+</head>
+<body>
+<header class="headerDisplay">
+    <div class="displayWrapper">
+        <img src="data/pics/BG_Display.jpg" alt="" class="titleIcon">
+        <div class="titleOverlay">
+            <h1>OLED Display</h1>
+            <h1>Studio</h1>
+        </div>
+    </div>
+    <div class="subtitle">
+        <a id="creditsLink" href="credits.html?lang=de" target="_blank">V2.4</a> 
+        | Advanced Export Edition by DTech
+    </div>
+</header>
+
+
+<main class="main_container">
+
+    <section class="panel" id="head_Line" >
+		<div class="panel_title" id="main_grid"><i class="fa fa-th-large"></i> OLED Display (128x32)</div>
+		<div class="controls_row">
+			<div class="tools_group">
+				<!-- Links: Rasterauswahl -->
+				<div class="guide_toggles">
+					<span class="label" id="desc_grid">Choose the Grid:</span>
+					<label style="color:#6f6;"><input type="checkbox" id="chk_grid_8" title=""> 8x8</label>
+					<label style="color:#6ff;"><input type="checkbox" id="chk_grid_16" title=""> 16x16</label>
+					<label style="color:#f66;"><input type="checkbox" id="chk_grid_32" title=""> 32x32</label>
+				</div>
+			<!-- Mitte: Maingater-only Tools -->
+			<button class="btn_main" id="m_shiftup" data-action="shift_up" title="Move UP"><i class="fa fa-arrow-up"></i></button>
+			<button class="btn_main" id="m_shiftdown"data-action="shift_down" title="Move DOWN"><i class="fa fa-arrow-down"></i></button>
+			<button class="btn_main" id="m_shiftleft"data-action="shift_left" title="Move LEFT"><i class="fa fa-arrow-left"></i></button>
+			<button class="btn_main" id="m_shiftright"data-action="shift_right" title="Move RIGHT"><i class="fa fa-arrow-right"></i></button>
+			<button class="btn_main" id="m_invert"data-action="invert" title="Invert all"><i class="fa fa-adjust"></i></button>
+			<button class="btn_main btn_del" id="m_clear"data-action="clear" title="clear grid"><i class="fa fa-trash"></i></button>
+			<button class="btn_main" id="m_code"data-action="code" title="Generate Code"><i class="fa fa-terminal"></i></button>
+			</div>
+		</div>
+		<!-- Center:  das Display 128x32-->
+		<div class="display_container_box">
+			<div class="display_wrapper">
+				<div id="col_headers" class="col_headers"></div>
+				<div id="row_headers" class="row_headers"></div>
+				<div id="grid_main"></div>
+			</div>
+		</div>
+	</section>
+
+<div class="middle_row">
+	
+	<section class="panel" id="panel_workshop">
+		<div class="panel_title"><i class="fa fa-pencil-square-o"></i> Icon Workshop</div>
+		<div class="workshop_toolbar">
+			<!-- Workshop-only Tools -->
+			<div class="tools_group">
+				<button class="btn_workshop" data-action="shift_up" title="Move UP"><i class="fa fa-arrow-up"></i></button>
+				<button class="btn_workshop" data-action="shift_down" title="Move DOWN"><i class="fa fa-arrow-down"></i></button>
+				<button class="btn_workshop" data-action="shift_left" title="Move LEFT"><i class="fa fa-arrow-left"></i></button>
+				<button class="btn_workshop" data-action="shift_right" title="Move RIGHT"><i class="fa fa-arrow-right"></i></button>
+				<button class="btn_workshop" data-action="invert" title="Invert all"><i class="fa fa-adjust"></i></button>
+				<button class="btn_workshop" data-action="mirror_h" title="Flip horizontally"><i class="fa fa-arrows-h"></i></button>
+				<button class="btn_workshop" data-action="mirror_v" title="Flip vertically"><i class="fa fa-arrows-v"></i></button>
+				<button class="btn_workshop" data-action="rotate" title="90° spin"><i class="fa fa-repeat"></i></button>
+				<button class="btn_workshop" data-action="scale" title="Scale x2"><i class="fa fa-expand"></i></button>
+				<button class="btn_workshop" data-action="stamp" title="Stamp mode"><i class="fa fa-gavel"></i></button>
+				<button class="btn_workshop btn_del" data-action="clear" title="clear grid"><i class="fa fa-trash"></i></button>
+				<button class="btn_workshop" data-action="code" title="Generate Code"><i class="fa fa-terminal"></i></button>
+			</div>
+		</div>
+		<!-- SCROLLBEREICH FÜR ALLE RASTER -->
+		<div class="workshop_outer_wrapper">
+			<div class="workshop_scroll_area" id="workshop_container"></div>
+		</div>
+	</section>
+	<section class="panel" id="panel_templates" >
+        <div class="panel_title" id="titel_templates" ><i class="fas fa-shapes"></i> Templates</div>
+		<div class="filt_toggles">
+			<span class="label" id="disc_templetes" >Filter:</span>
+            <label style="color:#6f6;"><input type="checkbox" id="chk_filt_8" title=""> 8x8</label>
+            <label style="color:#6ff;"><input type="checkbox" id="chk_filt_16" title=""> 16x16</label>
+            <label style="color:#f66;"><input type="checkbox" id="chk_filt_32" title=""> 32x32</label>
+        </div>
+        <div class="workshop_outer_wrapper">
+            <aside class="">
+                <div class="elemV_title"></div>
+                <div id="elemV_content" class="template_list"></div>
+            </aside>
+        </div>
+    </section>
+	<section class="panel" id="panel_info" >
+		<div class="panel_title" id="titel_preview" ><i class="fas fa-shapes"></i> 1:1 Preview</div>
+        <div class="preview_small">
+			<canvas id="preview1x" width="128" height="32"></canvas>
+		</div>
+        <div class="padel_title"><i class="fas fa-shapes"></i> Info</div>
+        <div class="workshop_outer_wrapper">
+			<aside class="workshop_sidebar_info">
+				<div class="info_title"></div>
+                <div id="info_content" class="info_text">Chosse a element...</div>
+            </aside>
+        </div>
+    </section>
+</div>
+		
+<div class="bottom_row">
+    
+    <section class="panel" id="export_section">
+        <div class="panel_title" id="titel_export" >Export & Konfiguration</div>
+        <div class="export_layout_v2">   
+            <div class="export_left">
+                <div class="textarea_header">
+					<span id="titel_output" >Output-format: </span>
+                    <div class="format_select_group">
+                        <select id="code_format">
+                            <option value="adafruit_gfx" id="adafruit_gfx" >Adafruit GFX (Hex Array)</option>
+                            <option value="cpp_binary" id="cpp_binary" >C++ Binary (0b0010...)</option>
+                            <option value="ssd1306_native" id="ssd1306_native" >Native Hardware (Vertikal)</option>
+							<option value="visual_art" id="visual_art" >Txt View (ASCII)</option>
+                        </select>
+                    </div>
+                    <span id="txt_datavolue" style="margin-left: 10px;" >Code size: <strong id="memory_usage">0</strong> Bytes</span>
+                    <div id="ascii_config" style="display:none; align-items:center; gap:5px; font-size:0.8em;">
+                        ON:<input type="text" id="char_on" value="#" class="char_input" maxlength="1">
+                        OFF:<input type="text" id="char_off" value="." class="char_input" maxlength="1">
+                    </div>
+					<div id="exp_btn_bar">
+						<button class="btn_main btn_del" id="btn_clr_code" data-action="clr_code" data-target="btn_clr_code" title="Clear"><i class="fa fa-trash"></i></button>
+						<button class="btn_main" id="btn_copy_code" title="Export to clipboard" ><i class="fa fa-clipboard"></i></button>
+					</div>
+
+                </div>
+                <textarea id="output_code" readonly placeholder="0x00, 0x66, 0x66, 0x10, ...."></textarea>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel_title" id="titel_import" >Import Hex, Binär  [Array]</div>
+        <div class="export_extra">
+            <div class="textarea_header">
+                <span id="txt_importTip" >Input (STRG + V):</span>
+                <div id="imp_btn_bar">
+                    <button id="btn_clear_import" class="btn_main btn_del" data-action="clr_import" data-target="clr_universal" title="Clear"><i class="fa fa-trash"></i></button>
+					<button id="btn_imp_import" class="btn_main" data-action="import_universal" data-target="imp_universal" title="Import"><i class="fa fa-upload"></i></button>
+                </div>
+            </div>
+            <textarea id="imp_universal" placeholder="0x00, 0x66, 0x66, 0x10, .... // hex 
+0b10000000, 0b00000000, .... // binär"></textarea>
+        </div>
+    </section>
+</div>
+</main>
+
+    <div id="stamp_ghost"></div> <!-- invisible Stamp area -->
+	<script src="data/templates.js"></script>
+	<script src="data/lang/lang_de.js"></script> <script src="data/lang/lang_en.js"></script> 
+	<script src="data/js/script.js"></script>
+
+</body>
+</html>

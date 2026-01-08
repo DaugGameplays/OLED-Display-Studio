@@ -1,0 +1,148 @@
+/* -------------------------------------------------------
+   ROOT
+------------------------------------------------------- */
+:root{--bg-dark:#121212;--card-bg:#1e1e1e;--accent:#00eaff;--border:#333;--btn-blue:#2980b9;--btn-green:#27ae60;--btn-red:#c0392b;}
+
+/* -------------------------------------------------------
+   BASE LAYOUT
+------------------------------------------------------- */
+body{font-family:'Segoe UI',sans-serif;background:var(--bg-dark);color:#eee;margin:0;padding:20px;display:flex;flex-direction:column;align-items:center;user-select:none;}
+.main_container{display:flex;flex-direction:column;gap:20px;width:100%;max-width:1300px;}
+.panel{background:var(--card-bg);border-radius:12px;padding:14px;border:1px solid var(--border);box-shadow:0 4px 15px rgba(0,0,0,0.5);}
+.panel_title{font-size:.8em;font-weight:bold;color:var(--accent);text-transform:uppercase;margin-bottom:5px;border-bottom:1px solid var(--border);padding-bottom:5px;}
+.subtitle{display: inline-block; position: absolute; top: 5px; left: 8px;}
+
+/* -------------------------------------------------------
+   HEADER
+------------------------------------------------------- */
+.headerDisplay {text-align: center; margin-bottom: 20px;}
+.displayWrapper {position: relative;display: inline-block;}
+.titleIcon {width: 450px; height: auto;border-radius: 4px;opacity: 0.9;display: block;}
+.titleOverlay {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); color: var(--accent); text-shadow: 0 0 6px #00ff88;pointer-events: none;}
+.titleOverlay h1 {margin: 0;line-height: 1;}
+
+/* -------------------------------------------------------
+   WORKSHOP SCROLL AREA
+------------------------------------------------------- */
+.workshop_outer_wrapper{display:flex;border:1px solid var(--border);border-radius:8px;background:#151515;overflow:hidden;position:relative;}
+.workshop_scroll_area{flex:1;display:flex;gap:15px;overflow-x:auto;padding:15px;background: #151515;}
+.workshop_sidebar_info{width:100%;background:#1a1a1a;padding:10px;border-left:2px solid var(--accent);position:sticky;right:0;z-index:10;display:flex;flex-direction:column;gap:8px;}
+.info_title{font-size:.75em;font-weight:bold;color:var(--accent);}
+.info_text{font-size:.72em;color:#888;line-height:1.4;min-height:230px;}
+
+/* -------------------------------------------------------
+   MAIN GRID (128x32)
+------------------------------------------------------- */
+#grid_main{display:grid;grid-template-columns:repeat(128,9px);grid-template-rows:repeat(32,9px);background:#000;border-top:1px solid #222;border-left:1px solid #222;width:fit-content;}
+.pixel_main{width:9px;height:9px;background:#000;border-right:1px solid #222;border-bottom:1px solid #222;box-sizing:border-box;}
+.pixel_main.active{background:var(--accent);box-shadow:inset 0 0 2px rgba(0,0,0,.5);}
+
+/* -------------------------------------------------------
+   WORKSHOP CARDS & GRIDS
+------------------------------------------------------- */
+.box_card{background:#222;padding:10px;border-radius:8px;border:1px solid:#333;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;transition:border .2s;}
+.box_card:hover{border-color:#555;}
+.box_card.active_raster{border-color:#00eaff;box-shadow:0 0 6px #00eaff}
+.box_card span{color: #666;}
+.mini_grid{/* LEGACY */display:grid;gap:1px;background:#444;border:1px solid #444;}
+
+.pixel_workshop{width:12px;height:12px;background:#111;}
+.pixel_workshop.active{background:var(--accent);}
+
+/* -------------------------------------------------------
+   AXIS & HEADERS
+------------------------------------------------------- */
+.display_container_box{padding:40px;background:#080808;border-radius:8px;display:flex;justify-content:center;overflow:auto;position:relative;}
+.display_wrapper{position:relative;}
+.header_cell{position:absolute;font-size:14px;color:#555;text-align:center;cursor:pointer;line-height:9px;}
+.header_cell:hover{color:var(--accent);}
+.col_headers{position:absolute;top:-15px;left:0;width:100%;height:15px;}
+.row_headers{position:absolute;left:-25px;top:0;width:20px;height:100%;}
+
+/* -------------------------------------------------------
+   EXPORT AREA
+------------------------------------------------------- */
+.export_layout_v2{display:flex;gap:20px;}
+.export_left{flex:4;}
+.textarea_header{background:#222;padding:8px 12px;border-radius:6px 6px 0 0;display:flex;justify-content:space-between;align-items:center;font-size:.75em;border:1px solid #333;}
+textarea{width:97%;height:120px;background:#000;color:#0f0;border:1px solid #333;font-family:monospace;padding:10px;resize:none;border-radius:0 0 6px 6px;}
+.preview_label{font-size:.6em;color:#555;margin-bottom:5px;text-transform:uppercase;width:100%;}
+canvas{background:#000;border:1px solid #333;image-rendering:pixelated;}
+select{background-color:grey;margin-left:20px;}
+
+/* -------------------------------------------------------
+   BUTTONS
+------------------------------------------------------- */
+
+.btn_main, .btn_workshop{padding:8px 15px;  border-radius:4px;  border:none;  cursor:pointer;  font-weight:bold;  background:#333;);  color:#00eaff;  transition:.2s;  display:inline-flex;  align-items:center;  justify-content:center;}
+.btn_del{background: #5d2b2b; color: #F44336;}
+.btn_main:hover, .btn_workshop:hover{  transform:translateY(1px) scale(.98);  filter:brightness(.9);  box-shadow:0 2px 4px rgba(0,0,0,.2);}
+.btn_main i , .btn_workshop i{pointer-events:none;font-size:16px;}
+
+/* -------------------------------------------------------
+   TEMPLATE LIST
+------------------------------------------------------- */
+.template_list{max-height: 300px; overflow-y: auto; overflow-x: hidden; display: grid; grid-template-columns: repeat(2, 1fr);gap: 5px;padding: 5px;}
+.template_item{display:flex;align-items:center;gap:12px;background:#1a1a1a;border:1px solid #333;padding:8px;margin-bottom:5px;cursor:pointer;border-radius:4px;transition:all .2s;width: 150px;}
+.template_item:hover{background:#252525;border-color:var(--accent);}
+.template_item.selected{border-color:var(--accent);background:#1a2a2d;}
+
+.mini_prev_grid{display:grid;gap:1px;background:#000;padding:1px;border:1px solid #444;border-radius:2px;flex-shrink:0;} /* JS relevant */
+
+.t_name{flex-grow:1;font-weight:bold;color:#ddd;font-size:.9em;}
+.t_size{font-family:monospace;font-size:.75em;color:#666;background:#000;padding:2px 4px;border-radius:3px;margin: -2px -4px;position: relative;left: -3px;top: 11px;}
+
+.t_info{display:flex;flex-direction:column;flex-grow:1;} /* JS relevant */
+
+.t_btns{display:flex;gap:4px;margin-top:4px;}
+.t_btns button{background:#333;border:1px solid #444;color:#eee;cursor:pointer;border-radius:2px;}
+.t_btns button:hover{background:var(--accent);color:#000;}
+.t_btn_load{border-color:#555;} /* JS relevant */
+.filt_toggles{margin-left: 8px;margin-top: -4px;margin-bottom: 4px;}
+
+/* -------------------------------------------------------
+   MISC
+------------------------------------------------------- */
+.infoBoxTitel{color:var(--accent);font-weight:bold;margin-bottom:4px;text-transform:uppercase;font-size:1em;} /* LEGACY */
+.infoBoxDisc{color:#aaa;font-size:.9em;line-height:1.3;} /* LEGACY */
+
+.preview_small{display:flex;flex-direction:column;align-items:center;padding:5px;background:#111;border:1px solid #333;border-radius:6px;margin-bottom: 10px;}*/
+.preview_small canvas{image-rendering:pixelated;background:black;}
+
+.tools_group {display: flex; gap: 6px; flex-direction: row; align-items: center; justify-content: center;padding-bottom: 5px;}
+.tools_group i{font-size:14px;pointer-events:none;}
+.guide_toggles {flex: auto;}
+
+#char_on,#char_off{max-width:20px;}
+#stamp_ghost{position:absolute;display:none;pointer-events:none;z-index:9999;opacity:.6;border:1px solid var(--accent);}
+
+/* -------------------------------------------------------
+   MEDIA QUERIES
+------------------------------------------------------- */
+@media(max-width:900px){.bottom_row,.middle_row{flex-direction:column;}}
+
+/* -------------------------------------------------------
+   LAYOUT ROWS
+------------------------------------------------------- */
+.bottom_row,.middle_row{display:flex;gap:20px;align-items:stretch;}
+.bottom_row .panel{flex:1;margin:0;}
+#export_section{flex:2;}
+.middle_row #panel_workshop{flex:1;margin:0;max-width:675px;}
+.middle_row #panel_templates{flex:1;margin:0;margin-left: -6px;margin-right: -7px;}
+.middle_row #panel_info{flex:1;margin:0;max-width:140px;}
+
+/* -------------------------------------------------------
+   GLOBAL SCROLLBAR
+------------------------------------------------------- */
+*::-webkit-scrollbar { width: 8px; height: 8px;}
+*::-webkit-scrollbar-track { background: #111;border-radius: 4px;}
+*::-webkit-scrollbar-thumb { background: var(--accent);border-radius: 4px;}
+*::-webkit-scrollbar-thumb:hover { background: #00bcd4;}
+/*Firefox extra*/
+* { scrollbar-width: thin;scrollbar-color: var(--accent) #111;}
+a { color: #2196F3; text-decoration: none;}
+a:visited {color: #2196F3;}
+a:hover {text-decoration: blink; color: inherit;}
+a:active { color: inherit;}
+
+

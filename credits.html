@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLED Studio – Credits</title>
+
+<style>
+    body {
+        background: #0d0d0d;
+        color: #e0e0e0;
+        font-family: monospace;
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+        line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+        color: #00ff88;
+        margin-bottom: 10px;
+    }
+
+    .topBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .back {
+        padding: 6px 12px;
+        background: #222;
+        border: 1px solid #444;
+        border-radius: 4px;
+        color: #00ff88;
+        text-decoration: none;
+    }
+
+    .back:hover {
+        background: #333;
+    }
+
+    .langSwitch a {
+        color: #00ff88;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .langSwitch a:hover {
+        text-decoration: underline;
+    }
+
+    .section {
+        margin-bottom: 40px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    .versionBox {
+        background: #111;
+        padding: 15px 20px;
+        border-left: 4px solid #00ff88;
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+    // Sprachumschaltung basierend auf ?lang=de oder ?lang=en
+    const params = new URLSearchParams(location.search);
+    const lang = params.get("lang") || "de";
+
+    function setLanguage() {
+        const de = document.querySelectorAll("[data-lang='de']");
+        const en = document.querySelectorAll("[data-lang='en']");
+
+        if (lang === "en") {
+            de.forEach(el => el.style.display = "none");
+            en.forEach(el => el.style.display = "block");
+        } else {
+            en.forEach(el => el.style.display = "none");
+            de.forEach(el => el.style.display = "block");
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", setLanguage);
+</script>
+
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topBar">
+    <div>
+        <a class="back" href="index.html" data-lang="de">← Zurück</a>
+        <a class="back" href="index.html" data-lang="en">← Back</a>
+    </div>
+
+    <div class="langSwitch">
+        <a href="credits.html?lang=de">DE</a>
+        <a href="credits.html?lang=en">EN</a>
+    </div>
+</div>
+
+<!-- TITEL -->
+<h1 data-lang="de">OLED Studio – Credits</h1>
+<h1 data-lang="en">OLED Studio – Credits</h1>
+
+<!-- BESCHREIBUNG -->
+<div class="section">
+    <p data-lang="de">
+        OLED Studio ist ein modularer, skalierbarer Editor für Pixelgrafiken auf OLED‑Displays.
+        Entwickelt für Klarheit, Geschwindigkeit und maximale Kontrolle über jedes einzelne Pixel.
+    </p>
+
+    <p data-lang="en">
+        OLED Studio is a modular, scalable editor for pixel graphics on OLED displays.
+        Designed for clarity, speed, and full control over every single pixel.
+    </p>
+</div>
+
+<!-- FUNKTIONEN -->
+<div class="section">
+    <h2 data-lang="de">Funktionen</h2>
+    <h2 data-lang="en">Features</h2>
+
+    <ul data-lang="de">
+        <li>Mehrere Rastergrößen (8×8, 16×16, 32×32, 8×16, 16×8)</li>
+        <li>HEX, BIN und C‑Array Export</li>
+        <li>Import‑Parser für verschiedene Formate</li>
+        <li>Live‑Preview</li>
+        <li>Tooltips & Lokalisierung</li>
+        <li>Dunkles, minimalistisches UI</li>
+    </ul>
+
+    <ul data-lang="en">
+        <li>Multiple grid sizes (8×8, 16×16, 32×32, 8×16, 16×8)</li>
+        <li>HEX, BIN and C‑array export</li>
+        <li>Import parser for various formats</li>
+        <li>Live preview</li>
+        <li>Tooltips & localization</li>
+        <li>Dark, minimal UI</li>
+    </ul>
+</div>
+
+<!-- VERSION 2.4 -->
+<div class="section">
+    <h2 data-lang="de">Was ist neu in Version 2.4</h2>
+    <h2 data-lang="en">What’s new in Version 2.4</h2>
+
+    <div class="versionBox" data-lang="de">
+        <ul>
+            <li>Komplettes Tooltip‑System überarbeitet</li>
+            <li>Workshop‑Raster vollständig lokalisiert</li>
+            <li>Info‑Box neu strukturiert</li>
+            <li>Verbesserte Import‑Erkennung</li>
+            <li>Neue Credits‑Seite hinzugefügt</li>
+        </ul>
+    </div>
+
+    <div class="versionBox" data-lang="en">
+        <ul>
+            <li>Complete tooltip system overhaul</li>
+            <li>Workshop grids fully localized</li>
+            <li>Reworked info box structure</li>
+            <li>Improved import detection</li>
+            <li>Added new credits page</li>
+        </ul>
+    </div>
+</div>
+
+<!-- WERKZEUGE -->
+<div class="section">
+    <h2 data-lang="de">Werkzeuge & Bedienung</h2>
+    <h2 data-lang="en">Tools & Usage</h2>
+
+    <div class="versionBox" data-lang="de">
+        <h3>Pixel setzen</h3>
+        <ul>
+            <li>Linksklick: Pixel setzen</li>
+            <li>Rechtsklick: Pixel löschen</li>
+            <li>Gedrückt halten: Linien zeichnen</li>
+        </ul>
+
+        <h3>Stempel‑Werkzeug</h3>
+        <ul>
+            <li>Setzt gespeicherte Muster wie ein Pinsel</li>
+        </ul>
+
+        <h3>Verschieben</h3>
+        <ul>
+            <li>Shift Up/Down/Left/Right: verschiebt das gesamte Raster</li>
+        </ul>
+
+        <h3>Spiegeln & Rotieren</h3>
+        <ul>
+            <li>Mirror H: horizontal spiegeln</li>
+            <li>Mirror V: vertikal spiegeln</li>
+            <li>Rotate: 90° drehen</li>
+        </ul>
+
+        <h3>Import & Export</h3>
+        <ul>
+            <li>HEX, BIN, C‑Array Export</li>
+            <li>Automatische Import‑Erkennung</li>
+        </ul>
+    </div>
+
+    <div class="versionBox" data-lang="en">
+        <h3>Drawing Pixels</h3>
+        <ul>
+            <li>Left click: set pixel</li>
+            <li>Right click: erase pixel</li>
+            <li>Hold mouse: draw continuous lines</li>
+        </ul>
+
+        <h3>Stamp Tool</h3>
+        <ul>
+            <li>Places saved patterns like a brush</li>
+        </ul>
+
+        <h3>Shifting</h3>
+        <ul>
+            <li>Shift Up/Down/Left/Right: moves the entire grid</li>
+        </ul>
+
+        <h3>Mirror & Rotate</h3>
+        <ul>
+            <li>Mirror H: flip horizontally</li>
+            <li>Mirror V: flip vertically</li>
+            <li>Rotate: rotate 90° clockwise</li>
+        </ul>
+
+        <h3>Import & Export</h3>
+        <ul>
+            <li>HEX, BIN, C‑array export</li>
+            <li>Automatic import detection</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ENTWICKLER -->
+<div class="section">
+    <h2 data-lang="de">Entwickelt von</h2>
+    <h2 data-lang="en">Developed by</h2>
+
+    <p>DTech 01/2026</p>
+</div>
+
+</body>
+</html>
