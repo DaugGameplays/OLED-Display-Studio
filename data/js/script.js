@@ -356,9 +356,6 @@ initExportEvents() {
     this.dom.formatSelect.addEventListener('change', () => this.refreshCode());
     this.dom.charOn.addEventListener('input', () => this.refreshCode());
     this.dom.charOff.addEventListener('input', () => this.refreshCode());
-
-    const copy = document.getElementById('btn_copy_code');
-    if (copy) copy.addEventListener('click', () => this.copyToClipboard());
 },
 
 // F) Template-Filter
@@ -1172,6 +1169,21 @@ setInfo(id) {
         <div class="infoBoxTitel">${title}</div>
         <div class="infoBoxDisc">${desc}</div>
     `;
+},
+// CLIPBOARD
+// -------------------------------------------------------
+copyToClipboard() {
+    navigator.clipboard
+        .writeText(this.dom.output.value)
+        .then(() => this.setInfo("code"));
+},
+
+pasteClipboard(targetId) {
+    navigator.clipboard.readText().then(txt => {
+        const el = document.getElementById(targetId);
+        if (el) el.value = txt;
+        this.setInfo("code");
+    });
 },
 
 // UNIVERSAL IMPORT
