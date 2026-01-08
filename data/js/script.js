@@ -557,7 +557,7 @@ initWorkshopButtons() {
     const buttons = document.querySelectorAll(".btn_workshop");
     buttons.forEach(btn => {
         btn.addEventListener("mouseenter", () => {
-            this.showToolInfo(btn.dataset.action);
+			this.setInfo(btn.dataset.action);
         });
         btn.addEventListener("click", () => {
             const active = document.querySelector(".box_card.active_raster");
@@ -1008,7 +1008,6 @@ refreshCode() {
 },
 
 generateCode(id, w, h) {
-
     this.state.lastGenerated = { id, w, h };
     const format = this.dom.formatSelect.value;
     const isMain = (id === 'grid_main');
@@ -1021,11 +1020,26 @@ generateCode(id, w, h) {
     let bytesCount = 0;
     // ASCII-Konfiguration sichtbar/unsichtbar
     this.dom.asciiConfig.style.display = (format === 'visual_art') ? 'flex' : 'none';
-    
+   
+       // ---------------------------------------------------
+    // FORMAT SWITCH
+    // ---------------------------------------------------
+
+    if (format === 'adafruit_gfx' || format === 'cpp_binary') {
+        ({ output, bytesCount } = this.generateAdafruitOrBinary(px, w, h, name, format));
+        this.setInfo(format, t("export_desc_adafruit"));
+    }
+    else if (format === 'visual_art') {
+        ({ output, bytesCount } = this.generateAsciiArt(px, w, h));
+        this.setInfo(format, t("export_desc_ascii"));
+    }
+    else if (format === 'ssd1306_native') {
+        ({ output, bytesCount } = this.generateSSD1306(px, w, h, name));
+        this.setInfo(format, t("export_desc_ssd1306"));
+    }   
     // OUTPUT & UI UPDATE
     this.dom.output.value = output;
     this.dom.memUsage.innerText = bytesCount;
-
     document.getElementById('export_section')?.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
